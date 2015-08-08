@@ -1,7 +1,6 @@
 #!/bin/bash
 
 dm () {
-
   if [[ $1 == "use" ]]; then
 
     if [[ $2 == "local" ]]; then
@@ -22,11 +21,10 @@ dm () {
       return
     else
       echo $ENV
-      echo "OH NO"
       return ENV_OK
     fi
   else
-    return docker-machine $*
+    docker-machine $*
   fi
 
 }
