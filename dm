@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dm () {
+
   if [[ $1 == "use" ]]; then
 
     if [[ $2 == "local" ]]; then
@@ -12,11 +13,11 @@ dm () {
       return
     fi
 
-    ENV=$(docker-machine env $2)
+    ENV=$(docker-machine env $2 $3)
     ENV_OK=$?
 
     if [[ ENV_OK -eq 0 ]]; then
-      eval "$(docker-machine env $2)"
+      eval "$(docker-machine env $2 $3)"
       echo "Now using docker machine $DOCKER_MACHINE_NAME"
       return
     else
