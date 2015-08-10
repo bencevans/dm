@@ -5,10 +5,7 @@ dm () {
   if [[ $1 == "use" ]]; then
 
     if [[ $2 == "local" ]]; then
-      eval DOCKER_TLS_VERIFY=""
-      eval DOCKER_HOST=""
-      eval DOCKER_CERT_PATH=""
-      eval DOCKER_MACHINE_NAME=""
+      eval "$(docker-machine env -u)" 
       echo "Docker enviroment vars unset"
       return
     fi
